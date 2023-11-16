@@ -1,3 +1,5 @@
+from math import sqrt
+
 t = []
 for i in range(int(input())):
     t.append(int(input()))
@@ -5,13 +7,14 @@ for i in range(int(input())):
 for el in t:
     if el <= 1:
         print("NIE")
-        continue
-    if el <= 3:
+    elif el == 2:
         print("TAK")
-        continue
-    for l in range(2, el//2 + 1):
-        if el % l == 0:
-            print("NIE")
-            break
+    elif el % 2 == 0:
+        print("NIE")
     else:
-        print("TAK")
+        is_prime = True
+        for l in range(3, int(sqrt(el)) + 1, 2):
+            if el % l == 0:
+                is_prime = False
+                break
+        print("TAK" if is_prime else "NIE")
