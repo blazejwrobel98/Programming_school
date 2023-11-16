@@ -1,0 +1,17 @@
+t = []
+for i in range(int(input())):
+    t.append(int(input()))
+
+for el in t:
+    if el <= 1:
+        print("NIE")
+        continue
+    if el <= 3:
+        print("TAK")
+        continue
+    for l in range(2, el//2 + 1):
+        if el % l == 0:
+            print("NIE")
+            break
+    else:
+        print("TAK")
