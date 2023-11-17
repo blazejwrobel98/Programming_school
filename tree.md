@@ -7,9 +7,13 @@
 |   |   |── podstawy/
 |   |   |── sredniozaawansowane/
 |   |   └── projekty/
-|   └── git/
-|       |── podstawy.md
-|       └── zaawansowane/
+|   |── git/
+|   |   |── podstawy.md
+|   |   └── zaawansowane/
+|   |── linux/
+|   |   └── podstawy.md
+|   └── windows/
+|       └── podstawy.md
 └── english/
     |── c/
     |   |── introduction.md
