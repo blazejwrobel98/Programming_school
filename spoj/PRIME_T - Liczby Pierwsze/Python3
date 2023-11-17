@@ -1,0 +1,20 @@
+from math import sqrt
+
+t = []
+for i in range(int(input())):
+    t.append(int(input()))
+
+for el in t:
+    if el <= 1:
+        print("NIE")
+    elif el == 2:
+        print("TAK")
+    elif el % 2 == 0:
+        print("NIE")
+    else:
+        is_prime = True
+        for l in range(3, int(sqrt(el)) + 1, 2):
+            if el % l == 0:
+                is_prime = False
+                break
+        print("TAK" if is_prime else "NIE")

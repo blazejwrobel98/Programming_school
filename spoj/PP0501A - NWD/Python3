@@ -1,0 +1,4 @@
+def nwd(a, b): return nwd(b, a%b) if b else a
+for i in range(int(input())):
+	line = input().split()
+	print(nwd(int(line[0]),int(line[1])))

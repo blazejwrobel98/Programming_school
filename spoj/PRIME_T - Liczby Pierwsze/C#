@@ -1,0 +1,25 @@
+using System;
+public class Test
+{
+	public static void Main()
+	{
+		int x = int.Parse(Console.ReadLine());
+		for(int i=1;i<=x;i++)
+		{
+			string temp = Console.ReadLine();
+			Console.WriteLine(check(int.Parse(temp)));
+		}
+	}
+	private static string check(int l){
+		if (l < 2)
+		{
+			return("NIE");
+		}
+		for(int i=2;i*i<=l;i++)
+			if(l%i==0)
+			{
+			return("NIE");
+			}
+		return("TAK");
+	}
+}
