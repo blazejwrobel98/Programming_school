@@ -1,24 +1,54 @@
 
 # Zaawansowane skryptowanie w Bash
 
-Skryptowanie w Bash to potê¿ne narzêdzie dla ka¿dego u¿ytkownika Linuxa, pozwalaj±ce na automatyzacjê zadañ i efektywne zarz±dzanie systemem.
+Skryptowanie w Bash to nie tylko automatyzacja rutynowych zadañ, ale równie¿ tworzenie z³o¿onych skryptów, które mog± znacz±co usprawniæ pracê w systemie Linux.
 
 ## Podstawy skryptów Bash
 
-- **Zmienne**: U¿ywane do przechowywania i manipulowania danymi. Np. `name="World"; echo "Hello, $name"`.
-- **Pêtle**: `for`, `while`, `until` pozwalaj± na wielokrotne wykonanie bloków kodu. Przyk³ad: `for file in *.txt; do echo $file; done`.
-- **Instrukcje warunkowe**: `if`, `else`, `elif` s³u¿± do wykonania kodu w zale¿no¶ci od spe³nienia okre¶lonych warunków.
-- **Funkcje**: Pozwalaj± na grupowanie poleceñ w jednostki, które mo¿na wielokrotnie wywo³ywaæ. 
+- **Zmienne**: Przechowywanie i manipulowanie danymi. Np. `name="World"; echo "Hello, $name"`.
+- **Pêtle**: Automatyzacja powtarzalnych zadañ. `for`, `while`, `until` to kluczowe pêtle w Bash.
+- **Instrukcje warunkowe**: `if`, `else`, `elif` pozwalaj± na wykonanie kodu w zale¿no¶ci od okre¶lonych warunków.
+- **Funkcje**: Grupowanie poleceñ w ³atwo wywo³ywalne bloki kodu.
 
 ## Przyk³ady zaawansowanych skryptów
 
-1. **Skrypt do backupu**: Automatyzuje tworzenie kopii zapasowych plików lub katalogów.
-2. **Monitorowanie systemu**: Skrypt, który sprawdza stan zasobów systemowych i wysy³a powiadomienia w razie wykrycia problemów.
+### Skrypt backupu
 
-## Praktyczne wskazówki
+```bash
+#!/bin/bash
+backup_folder="/mnt/backup"
+source_folder="/home/user/data"
 
-- **Debugowanie**: U¿yj `set -x` w skrypcie, aby ¶ledziæ, jakie polecenia s± wykonywane.
-- **Bezpieczeñstwo**: Uwa¿aj na dane wej¶ciowe w skryptach, zw³aszcza je¶li pochodz± od u¿ytkowników lub z niezaufanych ¼róde³.
-- **Optymalizacja**: Skrypty Bash nie zawsze s± najszybsze, ale poprzez efektywne wykorzystanie pêtli i komend mo¿na zwiêkszyæ ich wydajno¶æ.
+tar czf $backup_folder/backup-$(date +%Y%m%d).tar.gz $source_folder
+```
 
-Skryptowanie w Bash jest kluczowe dla zaawansowanego u¿ytkowania Linuxa, oferuj±c nieograniczone mo¿liwo¶ci automatyzacji i personalizacji systemu.
+Ten skrypt tworzy skompresowany archiwum z zawarto¶ci `source_folder` w lokalizacji `backup_folder` z dat± w nazwie.
+
+### Monitorowanie dostêpno¶ci serwisu
+
+```bash
+#!/bin/bash
+url="http://example.com"
+response=$(curl -o /dev/null -s -w "%{http_code}
+" $url)
+
+if [ "$response" -eq 200 ]; then
+    echo "Serwis $url jest dostêpny."
+else
+    echo "Serwis $url nie odpowiada."
+fi
+```
+
+Skrypt korzysta z `curl` do sprawdzenia, czy strona internetowa jest dostêpna, i wy¶wietla odpowiedni komunikat.
+
+## Debugowanie skryptów
+
+- U¿yj `set -x` na pocz±tku skryptu, aby zobaczyæ, jakie polecenia s± wykonywane.
+- `echo` i `printf` s± przydatne do wy¶wietlania warto¶ci zmiennych i stanu skryptu.
+
+## Dobre praktyki
+
+- Zawsze cytuj zmienne, aby unikn±æ nieoczekiwanego rozszerzania.
+- Traktuj dane wej¶ciowe jako niezaufane i sprawdzaj je przed u¿yciem.
+
+Opanowanie skryptowania w Bash otwiera nowe mo¿liwo¶ci zarz±dzania systemem Linux i automatyzacji zadañ.
