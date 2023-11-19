@@ -11,16 +11,22 @@
 |   |   |── podstawy.md
 |   |   └── zaawansowane/
 |   |── linux/
-|   |   └── podstawy.md
+│   │   ├───podstawowe
+│   │   └───zaawansowane
 |   └── windows/
-|       └── podstawy.md
-└── english/
-    |── c/
-    |   |── introduction.md
-    |   |── basics/
-    |   |── intermediate/
-    |   └── projects/
-    └── git/
-        |── basics.md
-        └── advanced/
+│       ├───podstawowe
+│       └───zaawansowane
+|── english/
+│   |── c/
+│   |   |── introduction.md
+│   |   |── basics/
+│   |   |── intermediate/
+│   |   └── projects/
+│   └── git/
+│       |── basics.md
+│       └── advanced/
+└───spoj
+    ├───PP0501A - NWD
+    └───PRIME_T - Liczby Pierwsze
+
 ```
